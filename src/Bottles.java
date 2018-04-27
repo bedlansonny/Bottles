@@ -8,18 +8,25 @@ public class Bottles
 
     public static void main(String args[]) throws IOException
     {
-        Scanner in = new Scanner(new File("input.txt"));
+        Scanner in = new Scanner(new File("bottles.dat"));
+        int c = in.nextInt();
 
-        vols = new int[] {3, 1, 3, 7, 2, 4};
+        for(int ci = 0; ci < c; ci++)
+        {
+            int n = in.nextInt();
 
-        System.out.println(best(vols.length - 1));
+            vols = new int[n];
+            for(int ni = 0; ni < n; ni++)
+            {
+                vols[ni] = in.nextInt();
+            }
 
-        mcv = new int[vols.length];
-        for(int i = 0; i < mcv.length; i++)
-            mcv[i] = -1;
-        System.out.println(bestMemo(vols.length-1));
-        System.out.println(bestDP());
-
+            mcv = new int[vols.length];
+            for(int i = 0; i < mcv.length; i++)
+                mcv[i] = -1;
+            //System.out.println(bestMemo(vols.length-1));
+            System.out.println(bestDP());
+        }
     }
 
     static int best(int index)
